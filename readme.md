@@ -9,7 +9,8 @@
 ## Todo
 
 1. ~~install `nbtlib` python library~~
-2. point it to selected worlds `level.dat` file
-3. transform data
-
+2. ~~create `extract.py`~~
+3. create `transform.py`
+4. create `load.py`
+   
 ---

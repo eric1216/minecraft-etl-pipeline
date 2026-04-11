@@ -1,3 +1,8 @@
 .DS_Store
 .vscode
 .python-version
+dump/
+config.py
+__pycache__/
+*.pyc
+*.pyo

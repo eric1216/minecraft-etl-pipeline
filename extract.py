@@ -36,6 +36,7 @@ def dump_dat(dat, file_name):
 world_name = 'etl'
 level_dat_path = f'{root_path}/minecraft/saves/{world_name}/level.dat'
 player_dat_dir = f'{root_path}/minecraft/saves/{world_name}/players/data/'
+player_stats_dir = f'{root_path}/minecraft/saves/{world_name}/players/stats/'
 
 # get world .dat file
 level_dat = nbtlib.load(level_dat_path)
@@ -47,3 +48,10 @@ for player_file in os.listdir(player_dat_dir):
     player_dat = nbtlib.load(os.path.join(player_dat_dir, player_file))
     uuid = player_file.removesuffix('.dat')
     dump_dat(player_dat, f'player_{uuid}.json')
+
+# copy the player stats json
+for stats_file in os.listdir(player_stats_dir):
+    if stats_file.endswith('.json'):
+        with open(os.path.join(player_stats_dir, stats_file), 'r') as infile:
+            data = json.load(infile)
+        dump_dat(data, f'stats_{stats_file}')
